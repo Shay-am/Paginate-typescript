@@ -1,8 +1,4 @@
-export const getCureentIdxPage = <T>(
-  data: T[],
-  elementsOnPage: number,
-  idxPage: number
-) => {
+export const getCurrentDataOnPage = <T>(data: T[], elementsOnPage: number, idxPage: number) => {
   const lastIndexPage = elementsOnPage * idxPage
   const firstIndexPage = lastIndexPage - elementsOnPage
 

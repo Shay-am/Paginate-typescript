@@ -1,20 +1,26 @@
+// /* eslint-disable react/prop-types */
 import React from 'react'
 
-export const Pagination = ({ dispatch }: any) => {
+type PropsFunction = {
+  action: {
+    goToFirstPage: () => void
+    goToPrevPage: () => void
+    goToNextPage: () => void
+    goToPage: (num: number) => void
+    goToLastPage: () => void
+  }
+}
+
+export const Pagination = ({ action }: PropsFunction) => {
+  const { goToFirstPage, goToPrevPage, goToNextPage, goToPage, goToLastPage } = action
+
   return (
-    <div>
-      <button onClick={() => dispatch({ type: 'goToFirstPage' })}>
-        goToFirstPage
-      </button>
-      <button onClick={() => dispatch({ type: 'goToPage', payload: 2 })}>
-        goToPage
-      </button>
-      <button onClick={() => dispatch({ type: 'goToPrevPage' })}>
-        goToPrevPage
-      </button>
-      <button onClick={() => dispatch({ type: 'goToNextPage' })}>
-        goToNextPage
-      </button>
-    </div>
+    <>
+      <button onClick={() => goToPage(2)}>goToPage</button>
+      <button onClick={goToFirstPage}>goToFirstPage</button>
+      <button onClick={goToPrevPage}>goToPrevPage</button>
+      <button onClick={goToNextPage}>goToNextPage</button>
+      <button onClick={goToLastPage}>goToLastPage</button>
+    </>
   )
 }
