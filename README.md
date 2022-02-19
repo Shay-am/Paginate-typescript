@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# Tabela z paginatorem
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Wymagana wiedza
 
-## Available Scripts
+- JavaScript, React
 
-In the project directory, you can run:
+## Technologie potrzebne do zadania
 
-### `yarn start`
+- JavaScript, React
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Cele główne
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [ ] Stwórz komponent `PaginatedTable`, który będzie renderował paginowaną tabelkę na podstawie danych przekazanych do propsa `dataEntries` - wygenerowanych przez Ciebie danych.
+- [ ] Stwórz komponent `Pagination` który będzie renderował wszystkie przyciski do zmiany stron
+- [ ] Stwórz hook `usePagination(dataEntries, elementsOnPage)` który zwraca poniższe dane:
 
-### `yarn test`
+```javascript
+const [
+  { actualPageIdx, lastPageIdx, entriesOnSelectedPage, isBusy },
+  { goToFirstPage, goToPrevPage, goToPage, goToNextPage, goToLastPage },
+] = usePagination(dataEntries)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+// actualPageIdx to index aktualnej strony
+// lastPageIdx to index ostatniej strony
+// entriesOnSelectedPage to przy elementsOnPage = 50 zawiera 50 elementów z dataEntries dla aktualnej strony
+// isBusy - boolean true/false, defaultowo false, który jest włączony na 333ms podczas gdy zmieniana jest strona i wyświetlane są nowe dane
 
-### `yarn build`
+// goToPage(pageIdx) - zmienia daną stronę
+// goToFirstPage, goToPrevPage, goToNextPage, goToLastPage - zmienia stronę na odpowiednią
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Cele dodatkowe
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ ] Brak
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Przydatne linki
 
-### `yarn eject`
+- Tworzenie własnych hooków - https://pl.reactjs.org/docs/hooks-custom.html
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Kawałek kodu na początek
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+const PaginatedTable = ({ dataEntries }) => {
+  // ...
+  return null
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+const Pagination = ({ paginationState, paginationActions }) => {}
+const usePagination = (dataEntries, elementsOnPage = 50) => {
+  // ...
+  // return [paginationState, paginationActions]
+}
+```
