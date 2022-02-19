@@ -7,7 +7,7 @@ import { usePagination } from 'Hooks/usePagination/usePagination'
 const data1 = ['s', 'sdsd', 'sdsads', 'dsds', 'sdsds', '1212', '232132', '3232', '2323']
 
 export const Home = () => {
-  const { currentDataEntries, actionPagination } = usePagination(data1, 3)
+  const { currentDataEntries, actionPagination } = usePagination(data1)
 
   return (
     <>

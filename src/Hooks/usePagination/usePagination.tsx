@@ -1,11 +1,12 @@
 import { useReducer } from 'react'
 import { paginationReducer } from 'Hooks/usePagination/paginationReducer'
 import { getCurrentDataOnPage } from 'Utils/getCurrentDataOnPage'
+import { getNoZeroNumber } from 'Helpers/getNoZeroNumber'
 
-export const usePagination = <T,>(dataEntries: T[], elementsOnPage: number) => {
+export const usePagination = <T,>(dataEntries: T[] = [], elementsOnPage = 1) => {
   const initialState = {
     actualPageIdx: 1,
-    lastPageIdx: Math.ceil(dataEntries.length / elementsOnPage),
+    lastPageIdx: Math.ceil(dataEntries.length / getNoZeroNumber(elementsOnPage)),
     entriesOnSelectedPage: elementsOnPage,
     isBusy: false,
   }
