@@ -1,7 +1,7 @@
 import React from 'react'
 
-type PropsFunction = {
-  action: {
+type ActionsProps = {
+  actions: {
     goToFirstPage: () => void
     goToPrevPage: () => void
     goToNextPage: () => void
@@ -10,8 +10,8 @@ type PropsFunction = {
   }
 }
 
-export const Pagination = ({ action }: PropsFunction) => {
-  const { goToFirstPage, goToPrevPage, goToNextPage, goToPage, goToLastPage } = action
+export const Pagination = ({ actions }: ActionsProps) => {
+  const { goToFirstPage, goToPrevPage, goToNextPage, goToPage, goToLastPage } = actions
 
   return (
     <>
