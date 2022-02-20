@@ -12,7 +12,7 @@ export const Home = () => {
   return (
     <>
       <PaginatedTable dataEntries={currentDataEntries} />
-      <Pagination action={actionPagination} />
+      <Pagination actions={actionPagination} />
     </>
   )
 }

@@ -1,5 +1,5 @@
-export const getCurrentDataOnPage = <T>(data: T[], elementsOnPage: number, idxPage: number) => {
-  const lastIndexPage = elementsOnPage * idxPage
+export const getCurrentDataOnPage = <T>(data: T[], elementsOnPage = 1, pageIdx = 1) => {
+  const lastIndexPage = elementsOnPage * pageIdx
   const firstIndexPage = lastIndexPage - elementsOnPage
 
   return data.slice(firstIndexPage, lastIndexPage)
